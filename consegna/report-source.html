@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fiction Niche Research – Mijke</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C0E12; --ink2:#161920; --ink3:#22262f;
+    --orange:#E18935; --orange-d:#AC6A2D; --orange-soft:#FBEBDC;
+    --white:#EDEFF3; --gray:#8D94A5; --line:#E3E5EA; --text:#2A2E37; --muted:#6B7180;
+  }
+  @page{size:A4;margin:0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-family:Inter,sans-serif;color:var(--text);font-size:10pt;line-height:1.5}
+  h1,h2,h3,h4,.brand,.eyebrow,.num{font-family:Poppins,sans-serif}
+  .page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;background:#fff}
+  .page:last-child{page-break-after:auto}
+  .dark{background:var(--ink);color:var(--white)}
+
+  /* brand */
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20pt;letter-spacing:-.5px;line-height:1}
+  .brand .e{color:var(--orange)} .brand .p{color:var(--white)}
+  .brand-sub{font-family:Inter;font-weight:500;letter-spacing:4px;color:var(--gray);font-size:7.5pt;margin-top:5px;text-transform:uppercase}
+  .brand.sm{font-size:12pt;gap:7px}
+
+  /* header band for interior pages */
+  .band{background:var(--ink);height:22mm;padding:0 16mm;display:flex;align-items:center;justify-content:space-between}
+  .band .meta{color:var(--gray);font-size:7.5pt;letter-spacing:3px;text-transform:uppercase}
+  .content{padding:9mm 16mm 0}
+  .foot{position:absolute;bottom:9mm;left:16mm;right:16mm;display:flex;justify-content:space-between;color:var(--gray);font-size:7.5pt;border-top:1px solid var(--line);padding-top:3mm}
+  .foot b{color:var(--orange);font-weight:600}
+
+  .eyebrow{color:var(--orange);font-weight:600;font-size:8pt;letter-spacing:3px;text-transform:uppercase;margin-bottom:2mm}
+  h2{font-size:21pt;font-weight:700;color:var(--ink);line-height:1.15;letter-spacing:-.4px;margin-bottom:3mm}
+  h3{font-size:11.5pt;font-weight:600;color:var(--ink);margin:5mm 0 1.5mm}
+  h4{font-size:9pt;font-weight:600;color:var(--orange-d);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.5mm}
+  p{margin-bottom:2.2mm}
+  .lead{font-size:10.5pt;color:var(--muted);margin-bottom:4mm}
+  ul.dots{list-style:none;margin-bottom:2mm}
+  ul.dots li{position:relative;padding-left:5mm;margin-bottom:1.4mm}
+  ul.dots li:before{content:"";position:absolute;left:0;top:2.1mm;width:2mm;height:2mm;border-radius:50%;background:var(--orange)}
+  .src{font-size:7.5pt;color:var(--gray)}
+
+  /* cover */
+  .cover{padding:20mm 18mm;display:flex;flex-direction:column;height:100%}
+  .cover .glow{position:absolute;right:-60mm;top:70mm;width:170mm;height:170mm;border-radius:50%;background:radial-gradient(circle,rgba(225,137,53,.28),rgba(225,137,53,0) 65%)}
+  .cover .mid{margin-top:auto;position:relative}
+  .cover h1{font-size:40pt;line-height:1.05;font-weight:800;letter-spacing:-1px;color:var(--white);margin:4mm 0 6mm}
+  .cover h1 span{color:var(--orange)}
+  .cover .sub{font-size:12.5pt;color:#B9BFCC;max-width:135mm}
+  .chips{display:flex;flex-wrap:wrap;gap:3mm;margin-top:10mm}
+  .chip{border:1px solid #3a3f4b;border-radius:30px;padding:2.2mm 5mm;font-size:9pt;color:var(--white);font-weight:500}
+  .chip i{font-style:normal;color:var(--orange);font-family:Poppins;font-weight:700;margin-right:2mm}
+  .cover .bottom{margin-top:auto;display:flex;justify-content:space-between;border-top:1px solid #2a2e38;padding-top:6mm;color:var(--gray);font-size:8.5pt}
+  .cover .bottom b{display:block;color:var(--white);font-weight:600;font-size:10pt;margin-top:1mm}
+
+  /* boxes */
+  .callout{background:var(--ink);color:var(--white);border-radius:4mm;padding:5mm 7mm;margin:3mm 0 4mm;position:relative;overflow:hidden}
+  .callout:after{content:"";position:absolute;right:-20mm;top:-20mm;width:60mm;height:60mm;border-radius:50%;background:radial-gradient(circle,rgba(225,137,53,.3),rgba(225,137,53,0) 70%)}
+  .callout .eyebrow{margin-bottom:1.5mm}
+  .callout h3{color:var(--white);font-size:14pt;margin:0 0 2mm}
+  .callout p{color:#C4C9D4;margin:0}
+  .callout em{color:var(--orange);font-style:normal;font-weight:600}
+  .soft{background:var(--orange-soft);border-left:1.2mm solid var(--orange);border-radius:0 3mm 3mm 0;padding:4mm 5mm;margin:3mm 0}
+  .soft p:last-child{margin-bottom:0}
+
+  table{width:100%;border-collapse:collapse;font-size:8.8pt;margin:2mm 0 3mm}
+  th{font-family:Poppins;font-weight:600;font-size:8pt;text-align:left;color:var(--white);background:var(--ink2);padding:2mm 3mm}
+  th:first-child{border-radius:2mm 0 0 0} th:last-child{border-radius:0 2mm 0 0}
+  td{padding:1.7mm 3mm;border-bottom:1px solid var(--line);vertical-align:top}
+  td:first-child{font-weight:600;color:var(--ink)}
+  tr.hl td{background:#FFF6EE}
+  .dotscale{letter-spacing:1px;color:var(--orange);font-size:10pt}
+  .dotscale s{text-decoration:none;color:#D5D8DF}
+  .tag{display:inline-block;background:var(--orange);color:#fff;font-family:Poppins;font-weight:600;font-size:7pt;border-radius:2mm;padding:.6mm 2mm;letter-spacing:.5px;vertical-align:middle;margin-left:1mm}
+
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:4mm 0 5mm}
+  .stat{border:1px solid var(--line);border-radius:3mm;padding:4.5mm 5mm}
+  .stat .num{font-size:22pt;font-weight:700;color:var(--orange);line-height:1}
+  .stat .lbl{font-weight:600;color:var(--ink);margin:2mm 0 1mm;font-size:9.5pt}
+  .stat .src{display:block}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:7mm}
+  .concept{border:1.5px solid var(--ink);border-radius:4mm;overflow:hidden;margin-top:3mm}
+  .concept .top{background:var(--ink);color:var(--white);padding:4.5mm 6mm}
+  .concept .top .eyebrow{margin-bottom:1mm}
+  .concept .top .series{color:var(--gray);font-size:8.5pt;letter-spacing:2px;text-transform:uppercase}
+  .concept .top h3{color:var(--white);font-size:15pt;margin:1mm 0 1mm}
+  .concept .top .tagline{color:var(--orange);font-style:italic;font-size:10pt}
+  .concept .body{padding:4mm 6mm;display:grid;grid-template-columns:1.35fr 1fr;gap:6mm}
+  .spec{font-size:8.6pt}
+  .spec div{display:flex;justify-content:space-between;gap:3mm;border-bottom:1px dashed var(--line);padding:1.3mm 0}
+  .spec div span:first-child{color:var(--muted)}
+  .spec div span:last-child{font-weight:600;color:var(--ink);text-align:right}
+  .series-list{list-style:none;counter-reset:b;margin-top:1mm}
+  .series-list li{counter-increment:b;padding-left:8mm;position:relative;margin-bottom:1.6mm;font-size:8.8pt}
+  .series-list li:before{content:counter(b);position:absolute;left:0;top:.2mm;width:5mm;height:5mm;border-radius:50%;background:var(--orange);color:#fff;font-family:Poppins;font-weight:700;font-size:7.5pt;display:flex;align-items:center;justify-content:center}
+  .comps td:first-child{width:38%}
+  .small{font-size:8.8pt}
+
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:3mm;margin:4mm 0 6mm}
+  .step{background:var(--ink);color:var(--white);border-radius:3mm;padding:4mm 3.5mm;min-height:36mm}
+  .step .num{color:var(--orange);font-size:18pt;font-weight:700;line-height:1}
+  .step b{display:block;font-family:Poppins;font-weight:600;font-size:9pt;margin:2mm 0 1mm}
+  .step span{font-size:8pt;color:#B9BFCC;line-height:1.4;display:block}
+  .incl{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:3mm 0 5mm}
+  .incl div{border:1px solid var(--line);border-radius:3mm;padding:3.5mm 4mm;font-size:9pt}
+  .incl div b{display:block;font-family:Poppins;color:var(--ink);font-size:11pt}
+  .sources{columns:2;column-gap:8mm;font-size:7.6pt;color:var(--muted)}
+  .sources li{margin-bottom:1.2mm;break-inside:avoid}
+  .sources a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="page dark">
+  <div class="glow"></div>
+  <div class="cover">
+    <div>
+      <div class="brand">
+        <svg width="34" height="34" viewBox="0 0 34 34"><path d="M7 5h17a3 3 0 0 1 3 3v19H10a3 3 0 0 0-3 3z" fill="#E18935"/><path d="M7 30a3 3 0 0 1 3-3h17v3z" fill="#AC6A2D"/><path d="M7 5v25" stroke="#AC6A2D" stroke-width="2"/></svg>
+        <span><span class="e">Elite</span><span class="p">Publishing</span></span>
+      </div>
+      <div class="brand-sub">by Elite Publishing Agency</div>
+    </div>
+    <div class="mid">
+      <div class="eyebrow">Fiction Niche Research · Book Direction</div>
+      <h1>Three directions for your <span>first fiction series</span></h1>
+      <p class="sub">A romantasy-led study of reader demand, competition and comparable books, with a ready-to-write concept for each niche, built for the Premium novella format and planned as a series from day one.</p>
+      <div class="chips">
+        <div class="chip"><i>01</i>Monster Romance</div>
+        <div class="chip"><i>02</i>Cozy Romantasy</div>
+        <div class="chip"><i>03</i>Paranormal Cozy Mystery</div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>Prepared for<b>Mijke</b></div>
+      <div>Market<b>Amazon Kindle · KU</b></div>
+      <div>Date<b>October 2026</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AT A GLANCE ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">At a glance</div></div>
+  <div class="content">
+    <div class="eyebrow">Summary</div>
+    <h2>Your brief and our recommendation</h2>
+    <p class="lead">You asked for a fiction book that is close to the romantasy you love, that can grow into a series, and that fits the Premium package (a manuscript of up to 15,000 words, written and formatted for Kindle).</p>
+
+    <div class="callout">
+      <div class="eyebrow">Our top pick</div>
+      <h3>Monster Romance: <em>The Orc King's Bargain</em></h3>
+      <p>This is the romantasy-adjacent niche where a 15,000-word novella is a normal format and not a compromise. Readers binge it on Kindle Unlimited, and every book can introduce a new couple in the same world, which keeps the series easy to grow.</p>
+    </div>
+
+    <h3>The three directions side by side</h3>
+    <table>
+      <tr><th></th><th>01 · Monster Romance</th><th>02 · Cozy Romantasy</th><th>03 · Paranormal Cozy Mystery</th></tr>
+      <tr><td>Closeness to romantasy</td><td><span class="dotscale">●●●●<s>●</s></span></td><td><span class="dotscale">●●●●●</span></td><td><span class="dotscale">●●<s>●●●</s></span></td></tr>
+      <tr><td>Novella format accepted</td><td><span class="dotscale">●●●●●</span></td><td><span class="dotscale">●●●<s>●●</s></span></td><td><span class="dotscale">●●●●<s>●</s></span></td></tr>
+      <tr><td>Reader demand</td><td>High, strong on KU &amp; BookTok</td><td>High and growing fast</td><td>High, stable evergreen</td></tr>
+      <tr><td>Competition</td><td>Medium, mostly indie</td><td>Medium, rising</td><td>High, needs a clear hook</td></tr>
+      <tr><td>Series potential</td><td><span class="dotscale">●●●●<s>●</s></span></td><td><span class="dotscale">●●●●<s>●</s></span></td><td><span class="dotscale">●●●●●</span></td></tr>
+      <tr><td>Heat level</td><td>Medium–high (adjustable)</td><td>Low–medium</td><td>Clean</td></tr>
+      <tr class="hl"><td>Our ranking</td><td><b>1st</b> <span class="tag">BEST FIT</span></td><td><b>2nd</b>, the cosiest option</td><td><b>3rd</b>, the long-series play</td></tr>
+    </table>
+
+    <h3>Why we steered away from mainstream romantasy</h3>
+    <p>Epic romantasy (fae courts, dragon riders) sells the most, but it is also the most crowded. Big publishers lead it, and readers expect novels of 90,000 words or more, so a novella placed there is judged against those books. In the three sub-niches above, short reads are an established, loved format. A well-crafted 15,000-word book can compete there on equal terms, and the series can be published faster.</p>
+
+    <div class="soft"><p><b>How we picked them:</b> close to romantasy, indie authors among the bestsellers, novellas accepted, strong Kindle Unlimited readership and readers who follow series.</p></div>
+  </div>
+  <div class="foot"><span>Fiction Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 02</span></div>
+</section>
+
+<!-- ============ MARKET ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Market snapshot</div></div>
+  <div class="content">
+    <div class="eyebrow">The market in 2026</div>
+    <h2>Fantasy and romance lead Kindle fiction</h2>
+    <p class="lead">These figures are industry estimates from third-party market reports, not official Amazon numbers. They show where reader money is going and why a precise niche matters.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="num">≈ 4 : 1</div><div class="lbl">Fantasy outsells science fiction on Kindle</div><p class="small">Romantasy and LitRPG drive the gap, and fantasy recorded its strongest average sales rank to date.</p><span class="src">K-lytics, Summer 2026 report (via Author Media)</span></div>
+      <div class="stat"><div class="num">$66.9M</div><div class="lbl">Kindle Unlimited fund, May 2026</div><p class="small">This was an all-time record. KU pays authors for every page read, so binge-friendly series benefit most.</p><span class="src">KDP Select Global Fund (via Author Media)</span></div>
+      <div class="stat"><div class="num">+24%</div><div class="lbl">Romance unit growth in the US</div><p class="small">51 million romance books were sold in a year, and romantasy was among the fastest-growing segments.</p><span class="src">Circana BookScan (via PublishDrive)</span></div>
+      <div class="stat"><div class="num">+18%</div><div class="lbl">More competing fantasy titles in one year</div><p class="small">Demand is strong but supply is rising too, which is why we target sub-niches and avoid the broad category.</p><span class="src">K-lytics, Summer 2026 report (via Author Media)</span></div>
+    </div>
+
+    <h3>What this means for your book</h3>
+    <ul class="dots">
+      <li><b>The demand is real and it sits next to romantasy.</b> Cozy fantasy is described as one of the hottest niches of 2026, and monster romance has moved from indie corners into the mainstream.</li>
+      <li><b>Kindle Unlimited rewards series.</b> Readers who finish Book 1 move straight on to Book 2, so later books earn more as the series grows. Single standalone books rarely build momentum.</li>
+      <li><b>Novellas give you speed.</b> Shorter books let a series reach three instalments sooner. A visible series page on Amazon is one of the strongest signals for new readers.</li>
+      <li><b>The niche has to be specific.</b> With competition rising, books win by matching an exact reader craving (a trope, a creature, a setting), not by being broadly "fantasy".</li>
+    </ul>
+
+    <h3>Reading Amazon rankings</h3>
+    <p class="small">Every Kindle book has a Best Sellers Rank (BSR). Independent estimates for the US Kindle store suggest roughly 1,000 sales a day at #100, about 13 a day at #10,000 and about 1 a day at #100,000. Holding a rank under 30,000 in a sub-niche is a solid result for a new author. Ranks move daily, and these conversions are estimates with a margin of error.</p>
+    <p class="src">Source: Automateed BSR calculator, calibrated July 2026.</p>
+  </div>
+  <div class="foot"><span>Fiction Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 03</span></div>
+</section>
+
+<!-- ============ NICHE 1 ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Direction 01 · Recommended</div></div>
+  <div class="content">
+    <div class="eyebrow">Direction 01 <span class="tag">BEST FIT</span></div>
+    <h2>Monster Romance</h2>
+    <p class="lead">Fantasy romance where the love interest is a non-human "monster" (orcs, demons, gargoyles, aliens). The tone is romantic and swoony, with a guaranteed happy ending.</p>
+
+    <div class="two">
+      <div>
+        <h4>Why it works</h4>
+        <ul class="dots small">
+          <li>It is one of romance's breakout trends. It moved from self-published corners into the mainstream, and BookTok and Kindle Unlimited keep it going.</li>
+          <li>It has dedicated reader events, such as the Monster Romance "Stuff Your Kindle" day on 31 October 2026.</li>
+          <li>Indie authors lead it, so there is room for new names.</li>
+          <li>Novellas of 15,000–40,000 words are standard, so your book will meet reader expectations.</li>
+        </ul>
+        <h4>Target reader</h4>
+        <p class="small">Women aged 25–45 who read romantasy, are heavy KU users and binge several books a week. They look for tropes like <i>arranged marriage</i>, <i>he falls first</i> and <i>grumpy/sunshine</i>.</p>
+      </div>
+      <div>
+        <h4>Comparable books &amp; positioning</h4>
+        <table class="comps small">
+          <tr><th>Book / series</th><th>What it teaches us</th></tr>
+          <tr><td>Ice Planet Barbarians<br><span class="src">Ruby Dixon</span></td><td>This is the series that took the niche mainstream. Each book follows a new couple in one shared world.</td></tr>
+          <tr><td>Duskwalker Brides<br><span class="src">Opal Reyne</span></td><td>A "brides" series title signals the trope instantly. The covers lean dark and romantic.</td></tr>
+        </table>
+        <h4>Watch-outs</h4>
+        <p class="small">The heat level must be decided early and kept the same across the series. Covers in this niche are illustrated, not photographic, which suits a pen name.</p>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="top">
+        <div class="series">Series · Thornwood Brides</div>
+        <h3>Book 1: The Orc King's Bargain</h3>
+        <div class="tagline">To save her village she agreed to marry a monster. Nobody warned her he would be the gentlest thing in the Thornwood.</div>
+      </div>
+      <div class="body">
+        <div>
+          <h4>Book 1 in brief</h4>
+          <p class="small">Elara, a royal mapmaker, is sent to marry Varr, king of the Thornwood orcs, to seal a fragile peace. She expects a beast. Instead she finds a ruler who keeps a library, who asks before he touches her and whose attention unravels her. When someone from her own court sabotages the treaty, Elara must choose between the crown that sold her and the king who chose her.</p>
+          <h4>Series plan</h4>
+          <ol class="series-list">
+            <li><b>The Orc King's Bargain</b>: Elara &amp; Varr</li>
+            <li><b>The Minotaur's Forge</b>: a runaway healer &amp; the blacksmith</li>
+            <li><b>The Gargoyle's Vow</b>: a cursed bookbinder &amp; her stone guardian</li>
+          </ol>
+        </div>
+        <div class="spec">
+          <h4>Book specs</h4>
+          <div><span>Length</span><span>15,000 words (novella)</span></div>
+          <div><span>POV</span><span>Dual, first person</span></div>
+          <div><span>Heat</span><span>Medium–high (your call)</span></div>
+          <div><span>Ending</span><span>HEA, standalone couple</span></div>
+          <div><span>Tropes</span><span>Arranged marriage, he falls first</span></div>
+          <div><span>Launch price</span><span>$2.99 + Kindle Unlimited</span></div>
+          <div><span>Keywords</span><span>orc romance, monster romance novella</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Fiction Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 04</span></div>
+</section>
+
+<!-- ============ NICHE 2 ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Direction 02</div></div>
+  <div class="content">
+    <div class="eyebrow">Direction 02</div>
+    <h2>Cozy Romantasy</h2>
+    <p class="lead">Romantic fantasy with a warm, low-stakes heart: magical shops, small villages, found family and a love story at the centre. It is the "comfort read" side of romantasy.</p>
+
+    <div class="two">
+      <div>
+        <h4>Why it works</h4>
+        <ul class="dots small">
+          <li>Market analysts named cozy fantasy one of the hottest niches of 2026. It is still described as an emerging niche with demand that is not yet fully met.</li>
+          <li>It has its own Amazon bestseller category and its own reader promotions, such as the October 2026 cozy fantasy &amp; romantasy events.</li>
+          <li>Book 1 of indie series (often 4–13 books long) appear in the category charts.</li>
+        </ul>
+        <h4>Target reader</h4>
+        <p class="small">Romantasy readers aged 25–55 who want comfort over carnage. They respond to cottagecore aesthetics, tea shops, bookshops and gentle magic.</p>
+      </div>
+      <div>
+        <h4>Comparable books &amp; positioning</h4>
+        <table class="comps small">
+          <tr><th>Book / series</th><th>What it teaches us</th></tr>
+          <tr><td>Legends &amp; Lattes<br><span class="src">Travis Baldree</span></td><td>It proved the "cozy" demand: a shop, a found family and low stakes.</td></tr>
+          <tr><td>The Very Secret Society of Irregular Witches<br><span class="src">Sangu Mandanna</span></td><td>It reached the top of the Cozy Fantasy charts. Witches, warmth and romance are the winning mix.</td></tr>
+          <tr><td>Magical Midlife Madness<br><span class="src">K.F. Breene</span></td><td>It shows how far a cozy-magic indie series can run, at 13+ books.</td></tr>
+        </table>
+        <h4>Watch-outs</h4>
+        <p class="small">At 15,000 words we position it clearly as a <i>cozy novella</i>, so readers expect a short, comforting read. The niche is attracting new releases quickly, so timing helps.</p>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="top">
+        <div class="series">Series · Willowmere Tales</div>
+        <h3>Book 1: Tea &amp; Thorns at the Moonlit Apothecary</h3>
+        <div class="tagline">A runaway witch, a suspicious fae knight, and a little tea shop at the edge of the enchanted wood.</div>
+      </div>
+      <div class="body">
+        <div>
+          <h4>Book 1 in brief</h4>
+          <p class="small">Wren has left her coven and only wants a quiet life brewing teas in the village of Willowmere. Ash, the brooding fae warden of the woods, is convinced she is trouble. When the village's midwinter lantern festival is threatened by a fading enchantment, the witch and the warden have to work together. Neither of them planned on falling for the other.</p>
+          <h4>Series plan</h4>
+          <ol class="series-list">
+            <li><b>Tea &amp; Thorns</b>: Wren &amp; Ash</li>
+            <li><b>Bread &amp; Embers</b>: the baker &amp; the retired dragon</li>
+            <li><b>Ink &amp; Starlight</b>: the bookseller &amp; the ghost librarian</li>
+          </ol>
+        </div>
+        <div class="spec">
+          <h4>Book specs</h4>
+          <div><span>Length</span><span>15,000 words (cozy novella)</span></div>
+          <div><span>POV</span><span>Dual, third person</span></div>
+          <div><span>Heat</span><span>Low–medium</span></div>
+          <div><span>Ending</span><span>HEA, standalone couple</span></div>
+          <div><span>Tropes</span><span>Grumpy/sunshine, found family</span></div>
+          <div><span>Launch price</span><span>$2.99 + Kindle Unlimited</span></div>
+          <div><span>Keywords</span><span>cozy fantasy romance, cozy witch novella</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Fiction Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 05</span></div>
+</section>
+
+<!-- ============ NICHE 3 ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Direction 03</div></div>
+  <div class="content">
+    <div class="eyebrow">Direction 03</div>
+    <h2>Paranormal Cozy Mystery</h2>
+    <p class="lead">A light, clean mystery with witches, ghosts or a talking familiar, plus a slow-burn romance running across the series. It is the most "bingeable" series format in Kindle Unlimited.</p>
+
+    <div class="two">
+      <div>
+        <h4>Why it works</h4>
+        <ul class="dots small">
+          <li>It is an evergreen niche with very loyal readers who follow a series for 10 books or more.</li>
+          <li>The Kindle Unlimited category is full of long series and box sets, which shows that readers move from one book to the next.</li>
+          <li>Novellas of 15,000–40,000 words are common and accepted.</li>
+        </ul>
+        <h4>Target reader</h4>
+        <p class="small">Women aged 35–65 who are avid KU readers. They prefer clean content and love quirky towns, pets with personality and puzzles they can solve along with the heroine.</p>
+      </div>
+      <div>
+        <h4>Comparable books &amp; positioning</h4>
+        <table class="comps small">
+          <tr><th>Book / series</th><th>What it teaches us</th></tr>
+          <tr><td>Witches' Brew<br><span class="src">Morgana Best</span></td><td>Puns in the titles and a strong series branding.</td></tr>
+          <tr><td>Witches of Holiday Hills<br><span class="src">Carolyn Ridder Aspenson</span></td><td>A small-town setting, with box sets used to boost read-through.</td></tr>
+        </table>
+        <h4>Watch-outs</h4>
+        <p class="small">This is the most crowded of the three (more than 10,000 Kindle results). It needs a distinctive hook, which is why we use a Dutch setting that is rare in the genre. It is also the furthest from romantasy.</p>
+      </div>
+    </div>
+
+    <div class="concept">
+      <div class="top">
+        <div class="series">Series · Hex &amp; Tulips Mysteries</div>
+        <h3>Book 1: Tulips, Toil &amp; Trouble</h3>
+        <div class="tagline">A canal-side flower shop, a sarcastic black cat and a murder in the tulip market.</div>
+      </div>
+      <div class="body">
+        <div>
+          <h4>Book 1 in brief</h4>
+          <p class="small">Fenna inherits her grandmother's flower shop in Amsterdam. With it come a talking cat familiar and the news that she is a witch. When a rival florist is found dead at the tulip market and Fenna becomes the prime suspect, she has to clear her name with help from Oma's ghost, while a far-too-handsome police inspector keeps getting in the way.</p>
+          <h4>Series plan</h4>
+          <ol class="series-list">
+            <li><b>Tulips, Toil &amp; Trouble</b>: the tulip market murder</li>
+            <li><b>A Hex on the Herengracht</b>: death on a canal cruise</li>
+            <li><b>Bike, Broom &amp; Bones</b>: a cold case at the windmill</li>
+          </ol>
+        </div>
+        <div class="spec">
+          <h4>Book specs</h4>
+          <div><span>Length</span><span>15,000 words (novella)</span></div>
+          <div><span>POV</span><span>First person, Fenna</span></div>
+          <div><span>Heat</span><span>Clean, slow-burn romance</span></div>
+          <div><span>Ending</span><span>Case solved, series arc open</span></div>
+          <div><span>Hooks</span><span>Witch, cat familiar, Dutch setting</span></div>
+          <div><span>Launch price</span><span>$2.99 + Kindle Unlimited</span></div>
+          <div><span>Keywords</span><span>paranormal cozy mystery, witch mystery</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Fiction Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 06</span></div>
+</section>
+
+<!-- ============ NEXT STEPS ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Next steps</div></div>
+  <div class="content">
+    <div class="eyebrow">Recommendation</div>
+    <h2>Where we would start</h2>
+    <p class="lead">Our recommendation is <b style="color:var(--ink)">Direction 01: Monster Romance, <i>The Orc King's Bargain</i></b>. It keeps the romantasy feeling you enjoy, the novella length is exactly what its readers expect, and the "new couple in the same world" structure makes Books 2 and 3 straightforward. If you would prefer a softer, lower-heat book, <b style="color:var(--ink)">Direction 02: Cozy Romantasy</b> is an excellent alternative.</p>
+
+    <div class="soft"><p>All three concepts are starting points. You can change the names, the setting or the heat level, or combine elements from different directions. We will refine everything with you in the outline stage.</p></div>
+
+    <h3>Your Premium package</h3>
+    <div class="incl">
+      <div><b>Up to 15,000 words</b>The complete novella manuscript.</div>
+      <div><b>Outline first</b>A chapter-by-chapter outline for your approval, with notes for Books 2–3.</div>
+      <div><b>Written &amp; formatted</b>The manuscript written and formatted, ready for Kindle.</div>
+      <div><b>21-day delivery</b>From your approval of the direction.</div>
+      <div><b>5 revisions</b>So the book feels exactly like yours.</div>
+      <div><b>US$1,250</b>One package, with no extra cost for the format.</div>
+    </div>
+
+    <h3>How we move forward</h3>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><b>Choose</b><span>Pick your direction, or tell us what to mix.</span></div>
+      <div class="step"><div class="num">2</div><b>Order</b><span>We send the Premium package offer.</span></div>
+      <div class="step"><div class="num">3</div><b>Outline</b><span>You approve the plot, characters and series notes.</span></div>
+      <div class="step"><div class="num">4</div><b>Write</b><span>We draft, edit and revise with your feedback.</span></div>
+      <div class="step"><div class="num">5</div><b>Deliver</b><span>You receive the formatted manuscript, ready for KDP.</span></div>
+    </div>
+
+    <h3>Sources</h3>
+    <ul class="sources">
+      <li>Author Media: "Cozy Fantasy and LitRPG Surge as Hottest Niches in 2026" (K-lytics Summer 2026 data)</li>
+      <li>Author Media: "Kindle Unlimited Pays Indie Authors Record-Breaking Royalties"</li>
+      <li>K-lytics: Fantasy Romance / Romantasy market report, April 2026</li>
+      <li>PublishDrive: "The Rise of Romantasy" (Circana BookScan data)</li>
+      <li>Accio: "Top Selling KDP Books, 2026 Guide"</li>
+      <li>Bookzee: "Why Romantasy and Cozy Fantasy are Trending in 2026"</li>
+      <li>Blue Rose One: "Monster Romance Novels (2026)"</li>
+      <li>Bestie and the Bookish: "2026 Stuff Your Kindle Events"</li>
+      <li>Automateed: Amazon BSR sales calculator (July 2026)</li>
+      <li>Amazon.com: Cozy Fantasy and Paranormal Cozy Mystery category listings</li>
+    </ul>
+    <p class="src" style="margin-top:4mm">Market figures are third-party estimates and are given for guidance only. Niche research gives a better-informed starting point but cannot guarantee sales. Book and series titles mentioned as comparables belong to their respective authors and publishers.</p>
+  </div>
+  <div class="foot"><span>Fiction Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 07</span></div>
+</section>
+
+</body>
+</html>
