@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Empowerment Niche Research – Mijke</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C0E12; --ink2:#161920; --ink3:#22262f;
+    --orange:#E18935; --orange-d:#AC6A2D; --orange-soft:#FBEBDC;
+    --white:#EDEFF3; --gray:#8D94A5; --line:#E3E5EA; --text:#2A2E37; --muted:#6B7180;
+  }
+  @page{size:A4;margin:0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-family:Inter,sans-serif;color:var(--text);font-size:10pt;line-height:1.5}
+  h1,h2,h3,h4,.brand,.eyebrow,.num{font-family:Poppins,sans-serif}
+  .page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;background:#fff}
+  .page:last-child{page-break-after:auto}
+  .dark{background:var(--ink);color:var(--white)}
+
+  /* brand */
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20pt;letter-spacing:-.5px;line-height:1}
+  .brand .e{color:var(--orange)} .brand .p{color:var(--white)}
+  .brand-sub{font-family:Inter;font-weight:500;letter-spacing:4px;color:var(--gray);font-size:7.5pt;margin-top:5px;text-transform:uppercase}
+  .brand.sm{font-size:12pt;gap:7px}
+
+  /* header band for interior pages */
+  .band{background:var(--ink);height:22mm;padding:0 16mm;display:flex;align-items:center;justify-content:space-between}
+  .band .meta{color:var(--gray);font-size:7.5pt;letter-spacing:3px;text-transform:uppercase}
+  .content{padding:9mm 16mm 0}
+  .foot{position:absolute;bottom:9mm;left:16mm;right:16mm;display:flex;justify-content:space-between;color:var(--gray);font-size:7.5pt;border-top:1px solid var(--line);padding-top:3mm}
+  .foot b{color:var(--orange);font-weight:600}
+
+  .eyebrow{color:var(--orange);font-weight:600;font-size:8pt;letter-spacing:3px;text-transform:uppercase;margin-bottom:2mm}
+  h2{font-size:21pt;font-weight:700;color:var(--ink);line-height:1.15;letter-spacing:-.4px;margin-bottom:3mm}
+  h3{font-size:11.5pt;font-weight:600;color:var(--ink);margin:5mm 0 1.5mm}
+  h4{font-size:9pt;font-weight:600;color:var(--orange-d);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.5mm}
+  p{margin-bottom:2.2mm}
+  .lead{font-size:10.5pt;color:var(--muted);margin-bottom:4mm}
+  ul.dots{list-style:none;margin-bottom:2mm}
+  ul.dots li{position:relative;padding-left:5mm;margin-bottom:1.4mm}
+  ul.dots li:before{content:"";position:absolute;left:0;top:2.1mm;width:2mm;height:2mm;border-radius:50%;background:var(--orange)}
+  .src{font-size:7.5pt;color:var(--gray)}
+
+  /* cover */
+  .cover{padding:20mm 18mm;display:flex;flex-direction:column;height:100%}
+  .cover .glow{position:absolute;right:-60mm;top:70mm;width:170mm;height:170mm;border-radius:50%;background:radial-gradient(circle,rgba(225,137,53,.28),rgba(225,137,53,0) 65%)}
+  .cover .mid{margin-top:auto;position:relative}
+  .cover h1{font-size:40pt;line-height:1.05;font-weight:800;letter-spacing:-1px;color:var(--white);margin:4mm 0 6mm}
+  .cover h1 span{color:var(--orange)}
+  .cover .sub{font-size:12.5pt;color:#B9BFCC;max-width:135mm}
+  .chips{display:flex;flex-wrap:wrap;gap:3mm;margin-top:10mm}
+  .chip{border:1px solid #3a3f4b;border-radius:30px;padding:2.2mm 5mm;font-size:9pt;color:var(--white);font-weight:500}
+  .chip i{font-style:normal;color:var(--orange);font-family:Poppins;font-weight:700;margin-right:2mm}
+  .cover .bottom{margin-top:auto;display:flex;justify-content:space-between;border-top:1px solid #2a2e38;padding-top:6mm;color:var(--gray);font-size:8.5pt}
+  .cover .bottom b{display:block;color:var(--white);font-weight:600;font-size:10pt;margin-top:1mm}
+
+  /* boxes */
+  .callout{background:var(--ink);color:var(--white);border-radius:4mm;padding:5mm 7mm;margin:3mm 0 4mm;position:relative;overflow:hidden}
+  .callout:after{content:"";position:absolute;right:-20mm;top:-20mm;width:60mm;height:60mm;border-radius:50%;background:radial-gradient(circle,rgba(225,137,53,.3),rgba(225,137,53,0) 70%)}
+  .callout .eyebrow{margin-bottom:1.5mm}
+  .callout h3{color:var(--white);font-size:14pt;margin:0 0 2mm}
+  .callout p{color:#C4C9D4;margin:0}
+  .callout em{color:var(--orange);font-style:normal;font-weight:600}
+  .soft{background:var(--orange-soft);border-left:1.2mm solid var(--orange);border-radius:0 3mm 3mm 0;padding:4mm 5mm;margin:3mm 0}
+  .soft p:last-child{margin-bottom:0}
+
+  table{width:100%;border-collapse:collapse;font-size:8.8pt;margin:2mm 0 3mm}
+  th{font-family:Poppins;font-weight:600;font-size:8pt;text-align:left;color:var(--white);background:var(--ink2);padding:2mm 3mm}
+  th:first-child{border-radius:2mm 0 0 0} th:last-child{border-radius:0 2mm 0 0}
+  td{padding:1.7mm 3mm;border-bottom:1px solid var(--line);vertical-align:top}
+  td:first-child{font-weight:600;color:var(--ink)}
+  tr.hl td{background:#FFF6EE}
+  .dotscale{letter-spacing:1px;color:var(--orange);font-size:10pt}
+  .dotscale s{text-decoration:none;color:#D5D8DF}
+  .tag{display:inline-block;background:var(--orange);color:#fff;font-family:Poppins;font-weight:600;font-size:7pt;border-radius:2mm;padding:.6mm 2mm;letter-spacing:.5px;vertical-align:middle;margin-left:1mm}
+
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:4mm 0 5mm}
+  .stat{border:1px solid var(--line);border-radius:3mm;padding:4.5mm 5mm}
+  .stat .num{font-size:22pt;font-weight:700;color:var(--orange);line-height:1}
+  .stat .lbl{font-weight:600;color:var(--ink);margin:2mm 0 1mm;font-size:9.5pt}
+  .stat .src{display:block}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:7mm}
+  .concept{border:1.5px solid var(--ink);border-radius:4mm;overflow:hidden;margin-top:3mm}
+  .concept .top{background:var(--ink);color:var(--white);padding:4.5mm 6mm}
+  .concept .top .eyebrow{margin-bottom:1mm}
+  .concept .top .series{color:var(--gray);font-size:8.5pt;letter-spacing:2px;text-transform:uppercase}
+  .concept .top h3{color:var(--white);font-size:15pt;margin:1mm 0 1mm}
+  .concept .top .tagline{color:var(--orange);font-style:italic;font-size:10pt}
+  .concept .body{padding:4mm 6mm;display:grid;grid-template-columns:1.35fr 1fr;gap:6mm}
+  .spec{font-size:8.6pt}
+  .spec div{display:flex;justify-content:space-between;gap:3mm;border-bottom:1px dashed var(--line);padding:1.3mm 0}
+  .spec div span:first-child{color:var(--muted)}
+  .spec div span:last-child{font-weight:600;color:var(--ink);text-align:right}
+  .series-list{list-style:none;counter-reset:b;margin-top:1mm}
+  .series-list li{counter-increment:b;padding-left:8mm;position:relative;margin-bottom:1.6mm;font-size:8.8pt}
+  .series-list li:before{content:counter(b);position:absolute;left:0;top:.2mm;width:5mm;height:5mm;border-radius:50%;background:var(--orange);color:#fff;font-family:Poppins;font-weight:700;font-size:7.5pt;display:flex;align-items:center;justify-content:center}
+  .comps td:first-child{width:38%}
+  .small{font-size:8.8pt}
+
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:3mm;margin:4mm 0 6mm}
+  .step{background:var(--ink);color:var(--white);border-radius:3mm;padding:4mm 3.5mm;min-height:36mm}
+  .step .num{color:var(--orange);font-size:18pt;font-weight:700;line-height:1}
+  .step b{display:block;font-family:Poppins;font-weight:600;font-size:9pt;margin:2mm 0 1mm}
+  .step span{font-size:8pt;color:#B9BFCC;line-height:1.4;display:block}
+  .incl{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:3mm 0 5mm}
+  .incl div{border:1px solid var(--line);border-radius:3mm;padding:3.5mm 4mm;font-size:9pt}
+  .incl div b{display:block;font-family:Poppins;color:var(--ink);font-size:11pt}
+  .sources{columns:2;column-gap:8mm;font-size:7.6pt;color:var(--muted)}
+  .sources li{margin-bottom:1.2mm;break-inside:avoid}
+  .sources a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body><style>
+  .mock{width:62mm;height:93mm;border-radius:1.5mm;position:relative;overflow:hidden;box-shadow:0 3mm 8mm rgba(12,14,18,.35);background:#6f7350 url(author.jpg) center/cover;flex:none}
+  .mock .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.0) 45%,rgba(10,8,8,.82) 72%,rgba(10,8,8,.95) 100%)}
+  .mock .pen{position:absolute;top:4mm;left:0;right:0;text-align:center;font-family:Inter;font-weight:600;letter-spacing:2.5px;font-size:5.5pt;color:#fff;text-transform:uppercase;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+  .mock .ttl{position:absolute;left:4mm;right:4mm;bottom:9mm;font-family:Poppins;font-weight:800;color:#fff;font-size:15.5pt;line-height:.95;text-transform:uppercase;letter-spacing:-.3px}
+  .mock .ttl span{color:#FF5A4E}
+  .mock .st{position:absolute;left:4mm;right:4mm;bottom:3.5mm;font-size:5pt;color:#E6E1DA;letter-spacing:.3px}
+  .coverrow{display:flex;gap:8mm;align-items:flex-start;margin-top:3mm}
+  .chapters{list-style:none;counter-reset:c;columns:2;column-gap:7mm;margin:1mm 0 2mm}
+  .chapters li{counter-increment:c;break-inside:avoid;position:relative;padding-left:8mm;margin-bottom:2.2mm;font-size:8.8pt;line-height:1.35}
+  .chapters li:before{content:counter(c,decimal-leading-zero);position:absolute;left:0;top:0;font-family:Poppins;font-weight:700;color:var(--orange);font-size:8.5pt}
+  .chapters li b{color:var(--ink);display:block}
+  .chapters li span{color:var(--muted);font-size:8pt}
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:2mm 0 3mm}
+  .dd > div{border-radius:3mm;padding:4mm 5mm;font-size:8.8pt}
+  .dd .do{background:#EEF6EF;border:1px solid #CFE5D2}
+  .dd .dont{background:#FBEDEC;border:1px solid #F0CFCB}
+  .dd h4{margin-bottom:2mm}
+  .dd .do h4{color:#2E7D43} .dd .dont h4{color:#B23A2E}
+  .dd ul{list-style:none} .dd li{margin-bottom:1.3mm;padding-left:4.5mm;position:relative}
+  .dd .do li:before{content:"✓";position:absolute;left:0;color:#2E7D43;font-weight:700}
+  .dd .dont li:before{content:"✕";position:absolute;left:0;color:#B23A2E;font-weight:700}
+  .quote{font-family:Poppins;font-weight:600;font-size:12pt;color:var(--ink);line-height:1.3;border-left:1.2mm solid var(--orange);padding:1mm 0 1mm 5mm;margin:3mm 0 4mm}
+  .quote small{display:block;font-family:Inter;font-weight:400;font-size:8pt;color:var(--muted);margin-top:1.5mm}
+  .persona{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;margin:2mm 0 3mm}
+  .persona div{border:1px solid var(--line);border-radius:3mm;padding:3.5mm 4mm;font-size:8.6pt}
+  .persona div b{display:block;font-family:Poppins;font-size:9.5pt;color:var(--ink);margin-bottom:1mm}
+</style>
+
+<!-- ============ COVER ============ -->
+<section class="page dark">
+  <div class="glow"></div>
+  <div class="cover">
+    <div>
+      <div class="brand">
+        <svg width="34" height="34" viewBox="0 0 34 34"><path d="M7 5h17a3 3 0 0 1 3 3v19H10a3 3 0 0 0-3 3z" fill="#E18935"/><path d="M7 30a3 3 0 0 1 3-3h17v3z" fill="#AC6A2D"/><path d="M7 5v25" stroke="#AC6A2D" stroke-width="2"/></svg>
+        <span><span class="e">Elite</span><span class="p">Publishing</span></span>
+      </div>
+      <div class="brand-sub">by Elite Publishing Agency</div>
+    </div>
+    <div class="mid">
+      <div class="eyebrow">Women's Empowerment · Niche Research</div>
+      <h1>A bold self-worth series <span>with your face on it</span></h1>
+      <p class="sub">Reader demand, competition, comparable books, target audience and positioning for a direct, witty, tough-love self-help book for women, with a full concept for Book 1, a plan for Book 2 and an author-led cover direction.</p>
+      <div class="chips">
+        <div class="chip"><i>01</i>Tough-love self-worth</div>
+        <div class="chip"><i>02</i>Women 20–35</div>
+        <div class="chip"><i>03</i>Two-book series</div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>Prepared for<b>Mijke</b></div>
+      <div>Market<b>Amazon Kindle · Paperback</b></div>
+      <div>Date<b>October 2026</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AT A GLANCE ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">At a glance</div></div>
+  <div class="content">
+    <div class="eyebrow">Summary</div>
+    <h2>Your idea works, and here is where it fits</h2>
+    <p class="lead">You asked for a bold, feminine, slightly provocative self-development book for women. The tone you want is direct, challenging and witty, but genuinely empowering. It should have you on the cover, work as a two-part series and start from the title <i>"Your Insecurity Is Showing"</i>.</p>
+
+    <div class="callout">
+      <div class="eyebrow">Our recommendation</div>
+      <h3>Tough-love self-worth for women: <em>Your Insecurity Is Showing</em></h3>
+      <p>This is a short, punchy, voice-led guide of about 25,000 words for women aged 20–35, positioned as <em>"the big-sister reality check"</em>. Book 1 tears down insecurity, people-pleasing and comparison. Book 2, <em>Your Power Is Showing</em>, builds standards, confidence and self-respect. An author-led cover makes you the brand.</p>
+    </div>
+
+    <h3>Key findings</h3>
+    <table>
+      <tr><th style="width:27%">Area</th><th>What we found</th><th style="width:16%">Verdict</th></tr>
+      <tr><td>Reader demand</td><td>Self-help is one of the strongest nonfiction categories, and women buy the large majority of it. Voice-led titles become the biggest hits.</td><td><b>Strong</b></td></tr>
+      <tr><td>Competition</td><td>The top of the category belongs to big names. The indie side is full of generic, faceless "confidence" titles with no recognisable voice.</td><td><b>Medium</b></td></tr>
+      <tr><td>The gap</td><td>The tough-love style is hugely popular on social media, but few <i>books</i> deliver it. That is where your opportunity is.</td><td><b>Clear opening</b></td></tr>
+      <tr><td>Length</td><td>Readers of this style want short, bingeable books. 20,000–30,000 words fits both the market and the tone.</td><td><b>~25,000 words</b></td></tr>
+      <tr><td>Series potential</td><td>The "breakdown, then build-up" structure turns naturally into two books with the same title pattern.</td><td><b>Strong</b></td></tr>
+      <tr class="hl"><td>Author-led cover</td><td>A face on the cover works when the author <i>is</i> the voice, as with the bestselling women's titles we studied. Your photos give a strong base.</td><td><b>Recommended</b> <span class="tag">KEY ASSET</span></td></tr>
+    </table>
+
+    <div class="soft"><p><b>One important choice:</b> we recommend developing <b>your own signature voice</b>, inspired by the energy of creators like Thewizardliz but never copying their catchphrases, persona or branding. A distinct voice is what makes the book feel original and lets it build its own audience.</p></div>
+  </div>
+  <div class="foot"><span>Empowerment Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 02</span></div>
+</section>
+
+<!-- ============ MARKET ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Reader demand</div></div>
+  <div class="content">
+    <div class="eyebrow">The market</div>
+    <h2>Women drive self-help, and voices drive sales</h2>
+    <p class="lead">These figures come from industry sources and press reports. They show who buys self-help and what kind of book breaks through.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="num">≈ 70%</div><div class="lbl">of self-help book buyers are women</div><p class="small">This makes women the core audience of the whole category, not a sub-segment.</p><span class="src">Marketdata LLC (other sources put it at 74%)</span></div>
+      <div class="stat"><div class="num">2.8M</div><div class="lbl">print copies of <i>The Let Them Theory</i> in 2025</div><p class="small">It was the top-selling print book of 2025, and it is still #2 on the 2026 year-to-date chart, the only self-help title in the top 10.</p><span class="src">Publishers Marketplace · Circana BookScan (via Quartz)</span></div>
+      <div class="stat"><div class="num">≈ 800K</div><div class="lbl">print copies of <i>Girl, Wash Your Face</i> in its first year</div><p class="small">This was a direct, personal, woman-to-woman book with the author on the cover. It was called "the publishing phenomenon of 2018".</p><span class="src">Quartz, 2018</span></div>
+      <div class="stat"><div class="num">130+</div><div class="lbl">weeks on the bestseller list for <i>You Are a Badass</i></div><p class="small">Its irreverent, funny tough-love tone kept selling for years, which shows that readers come back to this style.</p><span class="src">Weekly bestseller lists (via WRAL archive)</span></div>
+    </div>
+
+    <h3>What this means for your book</h3>
+    <ul class="dots">
+      <li><b>Readers buy voices, not topics.</b> The breakout titles in women's self-help are carried by a distinctive personality: frank, funny and personal. That is exactly the book you described.</li>
+      <li><b>Category sales follow strong new voices.</b> Self-help print sales grew in 2025 on the back of one breakout voice and cooled in the first half of 2026 as that book slowed (Publishers Weekly). Readers keep looking for the next voice that speaks to them.</li>
+      <li><b>The social-media style is under-served in books.</b> Thewizardliz's style is followed by a very large online audience, yet her own book (<i>The Wizardliz Guide to Inner Healing</i>, 2022) shows a modest footprint, with 184 ratings on Goodreads. The demand for this tone is far bigger than the supply of books written in it.</li>
+      <li><b>Short is a strength here.</b> Books in this style are often under 150 pages. Readers want a reality check they can read in a weekend and come back to.</li>
+    </ul>
+  </div>
+  <div class="foot"><span>Empowerment Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 03</span></div>
+</section>
+
+<!-- ============ COMPETITION ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Competition &amp; comparables</div></div>
+  <div class="content">
+    <div class="eyebrow">Comparable books</div>
+    <h2>Who you are up against, and how they are positioned</h2>
+    <p class="lead">We reviewed the big-name books readers compare everything to, and the indie titles you would sit next to on Amazon.</p>
+
+    <h3>The benchmarks (big names)</h3>
+    <table class="small">
+      <tr><th style="width:34%">Book</th><th>Positioning</th><th style="width:26%">Lesson for you</th></tr>
+      <tr><td>The Let Them Theory<br><span class="src">Mel Robbins</span></td><td>One simple, repeatable idea packaged as a "tool". The author's face and name are the brand.</td><td>A sticky core phrase sells the book.</td></tr>
+      <tr><td>Girl, Wash Your Face / Girl, Stop Apologizing<br><span class="src">Rachel Hollis</span></td><td>Each chapter names a lie women tell themselves. The author is on the cover, and the tone is personal and confessional.</td><td>A "call-out" chapter structure and an author-led cover.</td></tr>
+      <tr><td>You Are a Badass<br><span class="src">Jen Sincero</span></td><td>An irreverent, funny tough-love voice, with a bold typographic cover.</td><td>Humour makes the hard truths land.</td></tr>
+      <tr><td>Women Don't Owe You Pretty<br><span class="src">Florence Given</span></td><td>A provocative title and a bold visual identity aimed at young women.</td><td>Provocation plus empowerment works.</td></tr>
+      <tr><td>The Mountain Is You<br><span class="src">Brianna Wiest</span></td><td>Self-sabotage framed as something you can overcome. It is hugely shared on social media.</td><td>Quotable lines spread online.</td></tr>
+    </table>
+
+    <h3>The indie field (your direct neighbours on Amazon)</h3>
+    <table class="small">
+      <tr><th style="width:34%">Title</th><th>What we observed</th></tr>
+      <tr><td>STOP BEING INSECURE<br><span class="src">2026 release</span></td><td>It is keyword-led and generic in tone, with no visible author brand.</td></tr>
+      <tr><td>You're Not Too Much<br><span class="src">Stephanie Marin, 2026</span></td><td>A workbook format aimed at insecurity in relationships. It is gentle and therapeutic, not tough-love.</td></tr>
+      <tr><td>The Ultimate Glow Up Guide<br><span class="src">Elicia Goguen</span></td><td>It sells "glow-up" self-care and shadow work. Its Kindle rank was around #231,000 at the time of our check, which is modest.</td></tr>
+      <tr><td>"Dark feminine energy" titles<br><span class="src">400+ Kindle results</span></td><td>This crowded corner leans towards seduction and "femme fatale" angles rather than self-worth.</td></tr>
+    </table>
+
+    <div class="soft"><p><b>The opening:</b> the big names prove the demand but are not tough-love in the way you described. The indie titles target the same pain points but are mostly faceless, generic or soft. A book with a real face, a recognisable voice and a provocative title sits in a clear space between the two.</p></div>
+  </div>
+  <div class="foot"><span>Empowerment Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 04</span></div>
+</section>
+
+<!-- ============ AUDIENCE & VOICE ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Niche, audience &amp; voice</div></div>
+  <div class="content">
+    <div class="eyebrow">Recommended niche</div>
+    <h2>Tough-love self-worth for women</h2>
+    <p class="lead">Self-esteem and confidence, delivered with honesty and humour instead of gentleness. It fits Amazon's Self-Esteem, Personal Transformation and Motivational Self-Help categories.</p>
+
+    <h3>Your target reader</h3>
+    <div class="persona">
+      <div><b>Who she is</b>A woman aged 20–35 who lives on TikTok and Instagram. She follows glow-up and self-improvement creators and saves motivational quotes.</div>
+      <div><b>What she struggles with</b>People-pleasing, comparison, overthinking, situationships, seeking validation and a habit of shrinking herself.</div>
+      <div><b>What she wants</b>Someone who tells her the truth with no fluff, then shows her exactly how to become the woman she keeps pretending to be.</div>
+    </div>
+
+    <h3>Your signature voice</h3>
+    <div class="quote">"I'm not here to hold your hand. I'm here to hand you the mirror, and then the plan."<small>Sample line showing the intended tone: challenging first, empowering always.</small></div>
+
+    <div class="dd">
+      <div class="do"><h4>Do</h4><ul>
+        <li>Call out the <b>behaviour</b>, never the reader's worth</li>
+        <li>Follow every "roast" with a practical tool or exercise</li>
+        <li>Use humour, short sentences and quotable one-liners</li>
+        <li>Share your own stories, since your memoir experience is an asset</li>
+        <li>Talk like a big sister: honest because she cares</li>
+      </ul></div>
+      <div class="dont"><h4>Don't</h4><ul>
+        <li>Copy other creators' catchphrases, slogans or persona</li>
+        <li>Shame bodies, appearance or mental health</li>
+        <li>Let the tone tip into cruelty without a way out</li>
+        <li>Pad chapters with theory, because this reader wants punch</li>
+        <li>Make promises the book can't keep ("change your life in 7 days")</li>
+      </ul></div>
+    </div>
+
+    <div class="soft"><p><b>A distinctive edge:</b> a touch of European, Dutch-style directness ("we don't sugar-coat here") can become a signature that no competitor has, if you would like to bring that side of yourself into the brand.</p></div>
+  </div>
+  <div class="foot"><span>Empowerment Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 05</span></div>
+</section>
+
+<!-- ============ BOOK 1 ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Book 1 concept</div></div>
+  <div class="content">
+    <div class="eyebrow">Book 1</div>
+    <h2>Your Insecurity Is Showing</h2>
+    <p class="lead" style="margin-bottom:3mm"><b style="color:var(--ink)">Subtitle (draft):</b> Stop Shrinking, Stop Seeking Approval, and Start Acting Like the Woman You Want to Be</p>
+
+    <div class="callout" style="margin-top:2mm">
+      <div class="eyebrow">The promise</div>
+      <p>Every chapter calls out one way insecurity quietly runs a woman's life, then hands her a clear, practical way to stop. It's funny, a little uncomfortable and impossible to put down.</p>
+    </div>
+
+    <h3>Chapter outline (draft)</h3>
+    <ol class="chapters">
+      <li><b>You're Not Shy, You're Scared of Being Judged</b><span>Where insecurity really comes from</span></li>
+      <li><b>Stop Asking for Permission to Exist</b><span>People-pleasing and over-apologising</span></li>
+      <li><b>Your Group Chat Is Not Your Therapist</b><span>Seeking validation and outsourcing decisions</span></li>
+      <li><b>She's Not Your Competition</b><span>Comparison and social-media envy</span></li>
+      <li><b>Stop Dating Potential</b><span>Situationships, standards and self-respect</span></li>
+      <li><b>Your Body Is Not the Problem</b><span>Appearance anxiety, without the fluff</span></li>
+      <li><b>Overthinking Is Not a Personality</b><span>Getting out of your head and into action</span></li>
+      <li><b>Discipline Is the Highest Form of Self-Love</b><span>Keeping promises to yourself</span></li>
+      <li><b>Become Unbothered</b><span>Boundaries, opinions and protecting your energy</span></li>
+      <li><b>Main Character Energy, Done Right</b><span>Confidence that doesn't need an audience</span></li>
+    </ol>
+    <p class="small">Each chapter ends with a <b>"Reality Check"</b>: three honest questions and one action for the week. This makes the book interactive and easy to share online.</p>
+
+    <h3>Book specs</h3>
+    <div class="spec" style="columns:2;column-gap:8mm">
+      <div><span>Length</span><span>~25,000 words (≈ 130–150 pages)</span></div>
+      <div><span>Formats</span><span>Kindle ebook + paperback</span></div>
+      <div><span>Suggested price</span><span>$4.99 ebook · $12.99–14.99 paperback</span></div>
+      <div><span>Categories</span><span>Self-Esteem · Personal Transformation · Motivational</span></div>
+      <div><span>Keywords</span><span>self-esteem for women, stop being insecure</span></div>
+      <div><span>More keywords</span><span>confidence book for women, stop people pleasing</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Empowerment Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 06</span></div>
+</section>
+
+<!-- ============ SERIES & COVER ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Series &amp; cover positioning</div></div>
+  <div class="content">
+    <div class="eyebrow">Book 2 &amp; series</div>
+    <h2>From breakdown to build-up</h2>
+    <p class="lead">Book 1 tears down what holds the reader back, and Book 2 builds who she becomes. The shared title pattern makes the series instantly recognisable on Amazon.</p>
+
+    <div class="concept" style="margin-top:2mm">
+      <div class="top">
+        <div class="series">The "Showing" series · Book 2</div>
+        <h3>Your Power Is Showing</h3>
+        <div class="tagline">You stopped shrinking. Now it's time to take up space, on purpose.</div>
+      </div>
+      <div class="body" style="grid-template-columns:1fr 1fr">
+        <div>
+          <h4>Focus</h4>
+          <p class="small">Standards, self-respect, feminine confidence, discipline, money and ambition, and how to hold your ground in dating, friendships and work, all in the same witty, challenging voice.</p>
+        </div>
+        <div>
+          <h4>Why a series works</h4>
+          <p class="small">Readers who finish Book 1 are primed for "what's next". The two books also cross-sell on the same Amazon pages and can later be offered as a bundle.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Author-led cover positioning</h3>
+    <div class="coverrow">
+      <div class="mock">
+        <div class="grad"></div>
+        <div class="pen">Your Pen Name</div>
+        <div class="ttl">Your Insecurity <span>Is Showing</span></div>
+        <div class="st">Stop shrinking, stop seeking approval, start acting like the woman you want to be</div>
+      </div>
+      <div class="small">
+        <p><b style="color:var(--ink)">Positioning mockup made with one of your photos.</b> This is not the final cover design. It shows how the author-led direction looks on a shelf.</p>
+        <ul class="dots">
+          <li><b>Why your face:</b> in voice-led women's self-help, the author <i>is</i> the product. A face builds trust and recognition, as with the author-led bestsellers we reviewed.</li>
+          <li><b>Your photos:</b> they are professional, warm and elegant, with a direct gaze to camera, which is a strong base. For the final cover we would push the contrast and the type to make it bolder and more provocative.</li>
+          <li><b>Style:</b> very large uppercase title, one accent colour, a clean background and the same layout for Book 2, which keeps the series consistent.</li>
+          <li><b>Pen name:</b> consider using the same pen name as your memoir, so both books build <i>one</i> personal brand.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Empowerment Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 07</span></div>
+</section>
+
+<!-- ============ NEXT STEPS ============ -->
+<section class="page">
+  <div class="band"><div class="brand sm"><span><span class="e">Elite</span><span class="p">Publishing</span></span></div><div class="meta">Next steps</div></div>
+  <div class="content">
+    <div class="eyebrow">Recommendation</div>
+    <h2>Our verdict: go for it</h2>
+    <p class="lead">Your idea is not "cringe". It sits in a proven, women-led category, uses a tone readers actively seek out, and has a clear gap in book form. With a distinctive voice, a strong title and your face on the cover, <b style="color:var(--ink)"><i>Your Insecurity Is Showing</i></b> has a well-defined place on the shelf, and <b style="color:var(--ink)"><i>Your Power Is Showing</i></b> gives the series a natural second step.</p>
+
+    <h3>What we recommend</h3>
+    <div class="incl">
+      <div><b>Niche</b>Tough-love self-worth for women</div>
+      <div><b>Reader</b>Women aged 20–35, social-media native</div>
+      <div><b>Length</b>~25,000 words per book</div>
+      <div><b>Voice</b>Direct, witty, challenging and always empowering</div>
+      <div><b>Series</b>Two books with the same title pattern</div>
+      <div><b>Cover</b>Author-led, bold typography</div>
+    </div>
+
+    <h3>How we move forward</h3>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><b>Review</b><span>Tell us what you love or would change in the concept.</span></div>
+      <div class="step"><div class="num">2</div><b>Quote</b><span>We send the production offer for Book 1.</span></div>
+      <div class="step"><div class="num">3</div><b>Voice &amp; outline</b><span>We define your voice guide and the chapter outline.</span></div>
+      <div class="step"><div class="num">4</div><b>Write</b><span>We draft, edit and revise with your feedback.</span></div>
+      <div class="step"><div class="num">5</div><b>Launch-ready</b><span>Final manuscript, then cover and listing.</span></div>
+    </div>
+
+    <h3>Sources</h3>
+    <ul class="sources">
+      <li>Publishers Marketplace: "2025: The New Bestsellers" (The Let Them Theory, 2.8M units)</li>
+      <li>Quartz: "The 10 best-selling books of 2026 so far" (Circana BookScan)</li>
+      <li>Publishers Weekly: "Print Book Sales Flat in First Half of 2026"</li>
+      <li>Quartz (2018): "This self-help book is the publishing phenomenon of 2018"</li>
+      <li>WRAL bestseller archive: weekly Advice &amp; How-To lists</li>
+      <li>Marketdata LLC / Gitnux: self-help industry statistics</li>
+      <li>Goodreads: The Wizardliz Guide to Inner Healing</li>
+      <li>Amazon.com: self-help and women's self-esteem listings (2026)</li>
+    </ul>
+    <p class="src" style="margin-top:4mm">Market figures come from third-party and press sources and are given for guidance only. Niche research gives a better-informed starting point but cannot guarantee sales. Titles and creators mentioned as comparables belong to their respective authors and publishers. The cover mockup is a positioning illustration only.</p>
+  </div>
+  <div class="foot"><span>Empowerment Niche Research · Prepared for Mijke</span><span><b>Elite</b> Publishing · 08</span></div>
+</section>
+
+</body>
+</html>
